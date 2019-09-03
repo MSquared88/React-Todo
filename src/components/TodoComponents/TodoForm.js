@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormText, ButtonGroup} from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, ButtonGroup} from 'reactstrap';
 
 class TodoForm extends React.Component {
     constructor(){
@@ -20,7 +20,6 @@ class TodoForm extends React.Component {
             task: e.target.value 
         })
     }
-
 
   render(){
     return(

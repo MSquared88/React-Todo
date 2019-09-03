@@ -16,7 +16,7 @@ class App extends React.Component {
       todos: []
     }
   }
-
+  
 
   addTodo = todoName => {
     const newTodo = {
@@ -27,7 +27,6 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, newTodo]
     })
-
   }
 
   toggleCompleted = id => {
@@ -65,7 +64,6 @@ class App extends React.Component {
         />
         <Button onClick= {() => this.clearCompleted()}
         >Clear Completed</Button>
-
 
       </div>
     );
