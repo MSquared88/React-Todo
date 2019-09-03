@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 //components
 import TodoList from './components/TodoComponents/TodoList'
@@ -42,14 +43,30 @@ class App extends React.Component {
     })
   };
 
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+
+    })
+  }
+
   render() {
     
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos= {this.state.todos} 
-        toggleCompleted= {this.toggleCompleted} />
-        <TodoForm addTodo= {this.addTodo}/>
+        <TodoForm 
+        addTodo= {this.addTodo}
+        clearCompleted= {this.clearCompleted}
+        />
+        <TodoList 
+        todos= {this.state.todos} 
+        toggleCompleted= {this.toggleCompleted} 
+        />
+        <Button onClick= {() => this.clearCompleted()}
+        >Clear Completed</Button>
+
+
       </div>
     );
   }

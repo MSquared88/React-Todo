@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Row, Button, Form, FormGroup, Label, Input, FormText, ButtonGroup} from 'reactstrap';
 
 class TodoForm extends React.Component {
     constructor(){
@@ -11,6 +12,7 @@ class TodoForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.addTodo(this.state.task)
+        this.state.task = ''
     }
 
     handleChanges = e => {
@@ -22,16 +24,26 @@ class TodoForm extends React.Component {
 
   render(){
     return(
-      <form onSubmit= {this.handleSubmit}>
-        <input 
-          name= 'task'
-          value= {this.state.task}
-          onChange= {this.handleChanges}
-          placeholder= '...todo'
-        />
-        <button>Add Todo</button>
-        <button>Clear Completed</button>
-      </form>
+      <Form onSubmit= {this.handleSubmit}>
+        <Row>
+          <Col md={3}>
+            <FormGroup>
+              <Label for= "todo">Todo</Label>
+              <Input 
+                style= {{marginBottom: '10px'}}
+                type= 'text'
+                name= 'task'
+                value= {this.state.task}
+                onChange= {this.handleChanges}
+                placeholder= '...todo'
+              />
+              <ButtonGroup>
+                <Button>Add Todo</Button>
+              </ButtonGroup>
+            </FormGroup>
+          </Col>
+        </Row>
+      </Form>
     )
   }
 }

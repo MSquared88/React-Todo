@@ -3,13 +3,14 @@
 
 
 import React from 'react'
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 //components
 import Todo from './Todo'
 
 const TodoList = props => {
     return(
-        <div className= 'list-container'>
+        <>
             {props.todos.map(todo => (
                 <Todo 
                 key= {todo.id} 
@@ -17,7 +18,8 @@ const TodoList = props => {
                 toggleCompleted= {props.toggleCompleted}
                 />
                 ))}
-        </div>
+                
+        </>
     )
 }
 
