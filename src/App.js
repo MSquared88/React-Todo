@@ -29,26 +29,26 @@ class App extends React.Component {
 
   }
 
-  toggleStatus = id => {
+  toggleCompleted = id => {
     this.setState({
       todos: this.state.todos.map(todo => {
         if(todo.id === id) {
           return{
-            task: todo.task,
-            id: todo.id,
-            completed: (!todo.completed)
+            ...todo,
+            completed: !todo.completed
           }
-        }else {return todo}
+        }else {return todo;}
       })
     })
-  }
+  };
 
   render() {
     
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos= {this.state.todos} toggleStatus= {this.toggleStatus} />
+        <TodoList todos= {this.state.todos} 
+        toggleCompleted= {this.toggleCompleted} />
         <TodoForm addTodo= {this.addTodo}/>
       </div>
     );
